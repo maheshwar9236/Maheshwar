@@ -1,0 +1,21 @@
+def read_names(file_path):
+    with open(file_path, 'r') as file:
+        names = file.readlines()
+    return [name.strip() for name in names]
+
+def write_greetings(names, output_path):
+    with open(output_path, 'w') as file:
+        for name in names:
+            greeting = f"Hello, {name}!\n"
+            file.write(greeting)
+
+def main():
+    input_path = 'names.txt'
+    output_path = 'greetings.txt'
+    
+    names = read_names(input_path)
+    write_greetings(names, output_path)
+    print("Greetings written to file.")
+
+if __name__ == "__main__":
+    main()
